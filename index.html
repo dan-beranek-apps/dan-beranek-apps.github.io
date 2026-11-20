@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#111113">
+  <title>Apps | Daniel Beránek</title>
+  <meta name="description" content="A compact directory of Daniel Beránek's public applications and interfaces: the Agentic Entity Resolution Guardrail Planner and the DIO/ODI MCP service.">
+  <meta name="author" content="Daniel Beránek">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://apps.danielberanek.cz/">
+  <link rel="icon" href="https://danielberanek.cz/wp-content/uploads/cropped-db-icon-150x150.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Apps | Daniel Beránek">
+  <meta property="og:description" content="Public applications and interfaces by Daniel Beránek.">
+  <meta property="og:url" content="https://apps.danielberanek.cz/">
+  <meta property="og:site_name" content="Daniel Beránek Apps">
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #111113;
+      --surface: #1b1b1f;
+      --surface-raised: #222228;
+      --text: #ededf2;
+      --muted: #b3b3be;
+      --border: #414149;
+      --link: #a9c4ff;
+      --content: 66rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--page); }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: clamp(1.5rem, 5vw, 4.5rem) 1.25rem;
+      background: var(--page);
+      color: var(--text);
+      font: 1rem/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .shell { width: min(100%, var(--content)); margin-inline: auto; }
+    .eyebrow {
+      margin: 0 0 .6rem;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      letter-spacing: -.045em;
+      line-height: 1.08;
+    }
+    .intro {
+      max-width: 58ch;
+      margin: 1rem 0 2.25rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+    .app {
+      display: flex;
+      min-width: 0;
+      min-height: 17rem;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background: linear-gradient(155deg, var(--surface-raised), var(--surface));
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+    .app:hover {
+      border-color: #737987;
+      background: #25252c;
+      transform: translateY(-2px);
+    }
+    .app:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+    .app img {
+      display: block;
+      width: 4.25rem;
+      height: 4.25rem;
+      margin-bottom: 1.35rem;
+      object-fit: contain;
+    }
+    .app h2 {
+      margin: 0;
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      line-height: 1.25;
+      letter-spacing: -.02em;
+    }
+    .app p { margin: .8rem 0 1.2rem; color: var(--muted); }
+    .open { margin-top: auto; color: var(--link); font-size: .93rem; font-weight: 650; }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    footer a { color: var(--link); text-underline-offset: .18em; }
+    @media (max-width: 640px) {
+      body { padding: 2rem 1rem; }
+      .apps { grid-template-columns: 1fr; }
+      .app { min-height: 15rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .app { transition: none; }
+      .app:hover { transform: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://apps.danielberanek.cz/#website",
+    "url": "https://apps.danielberanek.cz/",
+    "name": "Daniel Beránek Apps",
+    "description": "Public applications and interfaces by Daniel Beránek.",
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Person",
+      "@id": "https://danielberanek.cz/#person",
+      "name": "Daniel Beránek",
+      "url": "https://danielberanek.cz/",
+      "sameAs": "https://orcid.org/0009-0004-0050-0264"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="eyebrow">Daniel Beránek · Public tools</p>
+      <h1>Apps</h1>
+      <p class="intro">Applications and interfaces built around digital identity, entity resolution and DIO/ODI reference infrastructure.</p>
+    </header>
+
+    <section class="apps" aria-label="Applications">
+      <a class="app" href="/agentic-entity-resolution-guardrail-planner/" aria-labelledby="planner-title">
+        <img
+          src="https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/assets/branding/agentic-entity-resolution-guardrail-planner-logo.svg"
+          width="512"
+          height="512"
+          alt=""
+        >
+        <h2 id="planner-title">Agentic Entity Resolution Guardrail Planner</h2>
+        <p>A design-time Agent Skill for preparing reviewable engineering plans for identity-changing MERGE, SPLIT and UNMERGE operations.</p>
+        <span class="open">Open Planner ↗</span>
+      </a>
+
+      <a class="app" href="https://mcp.danielberanek.cz/" aria-labelledby="mcp-title">
+        <img
+          src="https://danielberanek.cz/wp-content/uploads/cropped-db-icon-150x150.png"
+          width="150"
+          height="150"
+          alt=""
+        >
+        <h2 id="mcp-title">DIO/ODI MCP</h2>
+        <p>A public, stateless, read-only Model Context Protocol interface to the DIO/ODI Reference Model and selected integration mappings.</p>
+        <span class="open">Open MCP service ↗</span>
+      </a>
+    </section>
+
+    <footer>
+      <p>Daniel Beránek · <a href="https://danielberanek.cz/">danielberanek.cz</a> · <a href="https://orcid.org/0009-0004-0050-0264">ORCID</a></p>
+    </footer>
+  </main>
+</body>
+</html>
