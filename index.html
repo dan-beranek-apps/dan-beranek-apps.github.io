@@ -122,71 +122,128 @@
   </style>
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://apps.danielberanek.cz/#website",
-        "url": "https://apps.danielberanek.cz/",
-        "name": "Daniel Beránek Apps",
-        "description": "Public applications and interfaces by Daniel Beránek.",
-        "inLanguage": "en",
-        "publisher": {
-          "@id": "https://danielberanek.cz/#person"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://apps.danielberanek.cz/#website",
+      "url": "https://apps.danielberanek.cz/",
+      "name": "Daniel Beránek Apps",
+      "description": "Public applications and interfaces by Daniel Beránek.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://danielberanek.cz/#person"
+      },
+      "about": [
+        {
+          "@id": "https://vocab.danielberanek.cz/dio-odi/#DIO"
         },
-        "about": [
-          {
+        {
+          "@id": "https://vocab.danielberanek.cz/dio-odi/#ODI"
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://apps.danielberanek.cz/#webpage",
+      "url": "https://apps.danielberanek.cz/",
+      "name": "Apps | Daniel Beránek",
+      "description": "A compact directory of Daniel Beránek's public applications and interfaces: the Agentic Entity Resolution Guardrail Planner and the DIO/ODI MCP service.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://apps.danielberanek.cz/#website"
+      },
+      "author": {
+        "@id": "https://danielberanek.cz/#person"
+      },
+      "about": [
+        {
+          "@id": "https://vocab.danielberanek.cz/dio-odi/#DIO"
+        },
+        {
+          "@id": "https://vocab.danielberanek.cz/dio-odi/#ODI"
+        }
+      ],
+      "mainEntity": {
+        "@id": "https://apps.danielberanek.cz/#applications"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://apps.danielberanek.cz/#applications",
+      "name": "Public applications and interfaces",
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "numberOfItems": 2,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
             "@id": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/#software"
-          },
-          {
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
             "@id": "https://mcp.danielberanek.cz/#webapi"
           }
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://danielberanek.cz/#person",
-        "name": "Daniel Beránek",
-        "url": "https://danielberanek.cz/",
-        "sameAs": [
-          "https://orcid.org/0009-0004-0050-0264"
-        ]
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/#software",
-        "name": "Agentic Entity Resolution Guardrail Planner",
-        "url": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/",
-        "description": "A design-time Agent Skill for investigating agent-proposed MERGE, SPLIT, UNMERGE and supported identity-changing operations, then producing reviewable recommendations and structured engineering plans. It does not execute mutations or authorize production writes.",
-        "applicationCategory": "DeveloperApplication",
-        "softwareVersion": "0.4.2",
-        "creator": {
-          "@id": "https://danielberanek.cz/#person"
-        },
-        "featureList": [
-          "Eleven investigation dimensions",
-          "Evidence, provenance and conflict analysis",
-          "Authorization and approval requirements",
-          "Commit-boundary and write-set planning",
-          "Structured Markdown and JSON engineering handoff"
-        ],
-        "isPartOf": {
-          "@id": "https://apps.danielberanek.cz/#website"
         }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://danielberanek.cz/#person",
+      "name": "Daniel Beránek",
+      "url": "https://danielberanek.cz/od-pultu-az-k-seo-a-copy-s-ostrymi-hroty-profesni-bio/",
+      "mainEntityOfPage": {
+        "@id": "https://danielberanek.cz/od-pultu-az-k-seo-a-copy-s-ostrymi-hroty-profesni-bio/#profilepage"
       },
-      {
-        "@type": "WebAPI",
-        "@id": "https://mcp.danielberanek.cz/#webapi",
-        "name": "DIO/ODI MCP",
-        "url": "https://mcp.danielberanek.cz/mcp",
-        "documentation": "https://mcp.danielberanek.cz/",
-        "description": "A public, stateless, read-only Model Context Protocol interface to the DIO/ODI Reference Model, canonical SKOS vocabulary and selected reference mappings. It does not inspect customer systems, authorize mutations or execute production writes.",
-        "provider": {
-          "@id": "https://danielberanek.cz/#person"
-        }
+      "sameAs": [
+        "https://orcid.org/0009-0004-0050-0264"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/#software",
+      "name": "Agentic Entity Resolution Guardrail Planner",
+      "url": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/",
+      "description": "A design-time Agent Skill for investigating agent-proposed MERGE, SPLIT, UNMERGE and supported identity-changing operations, then producing reviewable recommendations and structured engineering plans. It does not execute mutations or authorize production writes.",
+      "applicationCategory": "DeveloperApplication",
+      "softwareVersion": "0.4.2",
+      "creator": {
+        "@id": "https://danielberanek.cz/#person"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://apps.danielberanek.cz/#website"
+      },
+      "featureList": [
+        "Eleven investigation dimensions",
+        "Evidence, provenance and conflict analysis",
+        "Authorization and approval requirements",
+        "Commit-boundary and write-set planning",
+        "Structured Markdown and JSON engineering handoff"
+      ]
+    },
+    {
+      "@type": "WebAPI",
+      "@id": "https://mcp.danielberanek.cz/#webapi",
+      "name": "DIO/ODI MCP",
+      "url": "https://mcp.danielberanek.cz/mcp",
+      "documentation": "https://mcp.danielberanek.cz/#tools",
+      "description": "A public, stateless, read-only Model Context Protocol interface to the DIO/ODI Reference Model, canonical SKOS vocabulary and selected reference mappings. It does not inspect customer systems, authorize mutations or execute production writes.",
+      "provider": {
+        "@id": "https://danielberanek.cz/#person"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://mcp.danielberanek.cz/#webpage"
       }
-    ]
-  }
+    }
+  ]
+}
   </script>
 </head>
 <body>
