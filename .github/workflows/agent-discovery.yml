@@ -7,6 +7,8 @@ on:
       - "scripts/generate_agent_discovery.py"
       - ".well-known/**"
       - ".github/workflows/agent-discovery.yml"
+      - "index.html"
+      - "scripts/validate_structured_data.py"
   pull_request:
     paths:
       - "discovery/**"
@@ -29,3 +31,5 @@ jobs:
           python-version: "3.x"
       - name: Validate generated manifests
         run: python scripts/generate_agent_discovery.py --check
+      - name: Validate homepage structured data
+        run: python scripts/validate_structured_data.py
