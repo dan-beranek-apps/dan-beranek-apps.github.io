@@ -10,6 +10,8 @@
   <meta name="author" content="Daniel Beránek">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://apps.danielberanek.cz/">
+  <link rel="ard" type="application/json" href="https://apps.danielberanek.cz/.well-known/ard.json">
+  <link rel="ai-catalog" type="application/ai-catalog+json" href="https://apps.danielberanek.cz/.well-known/ai-catalog.json">
   <link rel="icon" href="/favicon.png" type="image/png" sizes="150x150">
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta property="og:type" content="website">
@@ -121,19 +123,69 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://apps.danielberanek.cz/#website",
-    "url": "https://apps.danielberanek.cz/",
-    "name": "Daniel Beránek Apps",
-    "description": "Public applications and interfaces by Daniel Beránek.",
-    "inLanguage": "en",
-    "publisher": {
-      "@type": "Person",
-      "@id": "https://danielberanek.cz/#person",
-      "name": "Daniel Beránek",
-      "url": "https://danielberanek.cz/",
-      "sameAs": "https://orcid.org/0009-0004-0050-0264"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://apps.danielberanek.cz/#website",
+        "url": "https://apps.danielberanek.cz/",
+        "name": "Daniel Beránek Apps",
+        "description": "Public applications and interfaces by Daniel Beránek.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://danielberanek.cz/#person"
+        },
+        "about": [
+          {
+            "@id": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/#software"
+          },
+          {
+            "@id": "https://mcp.danielberanek.cz/#webapi"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://danielberanek.cz/#person",
+        "name": "Daniel Beránek",
+        "url": "https://danielberanek.cz/",
+        "sameAs": [
+          "https://orcid.org/0009-0004-0050-0264"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/#software",
+        "name": "Agentic Entity Resolution Guardrail Planner",
+        "url": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/",
+        "description": "A design-time Agent Skill for investigating agent-proposed MERGE, SPLIT, UNMERGE and supported identity-changing operations, then producing reviewable recommendations and structured engineering plans. It does not execute mutations or authorize production writes.",
+        "applicationCategory": "DeveloperApplication",
+        "softwareVersion": "0.4.2",
+        "creator": {
+          "@id": "https://danielberanek.cz/#person"
+        },
+        "featureList": [
+          "Eleven investigation dimensions",
+          "Evidence, provenance and conflict analysis",
+          "Authorization and approval requirements",
+          "Commit-boundary and write-set planning",
+          "Structured Markdown and JSON engineering handoff"
+        ],
+        "isPartOf": {
+          "@id": "https://apps.danielberanek.cz/#website"
+        }
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://mcp.danielberanek.cz/#webapi",
+        "name": "DIO/ODI MCP",
+        "url": "https://mcp.danielberanek.cz/mcp",
+        "documentation": "https://mcp.danielberanek.cz/",
+        "description": "A public, stateless, read-only Model Context Protocol interface to the DIO/ODI Reference Model, canonical SKOS vocabulary and selected reference mappings. It does not inspect customer systems, authorize mutations or execute production writes.",
+        "provider": {
+          "@id": "https://danielberanek.cz/#person"
+        }
+      }
+    ]
   }
   </script>
 </head>

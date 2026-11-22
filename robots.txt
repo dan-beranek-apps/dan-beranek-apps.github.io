@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Agentmap: https://apps.danielberanek.cz/.well-known/ard.json

@@ -1,0 +1,72 @@
+{
+  "entries": [
+    {
+      "@context": "https://agenticresourcediscovery.org/context/v1",
+      "identifier": "urn:air:apps.danielberanek.cz:skill:agentic-entity-resolution-guardrail-planner",
+      "displayName": "Agentic Entity Resolution Guardrail Planner",
+      "type": "text/html",
+      "url": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/",
+      "description": "A published design-time Agent Skill for investigating agent-proposed MERGE, SPLIT, UNMERGE and supported identity-changing operations, then producing reviewable recommendations and structured engineering plans. It does not execute mutations or authorize production writes.",
+      "version": "0.4.2",
+      "tags": [
+        "Agent Skill",
+        "Agentic Entity Resolution",
+        "DIO/ODI",
+        "identity changes",
+        "MERGE",
+        "SPLIT",
+        "UNMERGE",
+        "engineering planning"
+      ],
+      "capabilities": [
+        "entity_resolution_planning",
+        "merge_planning",
+        "split_planning",
+        "unmerge_planning",
+        "evidence_and_provenance_review",
+        "authorization_requirements",
+        "commit_boundary_planning",
+        "engineering_handoff"
+      ],
+      "representativeQueries": [
+        "Find an Agent Skill for investigating an agent-proposed entity MERGE, SPLIT or UNMERGE.",
+        "Prepare a reviewable engineering plan for an identity-changing entity-resolution operation.",
+        "Identify evidence, provenance, conflict, authorization and downstream-impact requirements for a proposed entity change.",
+        "Determine commit-boundary, failure-recovery and validation requirements before a persistent identity change."
+      ]
+    },
+    {
+      "@context": "https://agenticresourcediscovery.org/context/v1",
+      "identifier": "urn:air:apps.danielberanek.cz:mcp:dio-odi-reference",
+      "displayName": "DIO/ODI MCP Reference Service",
+      "type": "application/mcp-server-card+json",
+      "url": "https://mcp.danielberanek.cz/mcp/server-card",
+      "description": "Public, stateless, read-only MCP Streamable HTTP service exposing the DIO/ODI Reference Model, canonical SKOS vocabulary, and selected derived Agentic ER and Policy-as-Code reference mappings. It does not inspect integrating applications, validate evidence, authorize mutations, or execute production writes.",
+      "version": "0.1.4",
+      "tags": [
+        "DIO/ODI",
+        "MCP",
+        "reference model",
+        "SKOS",
+        "Agentic Entity Resolution",
+        "read-only"
+      ],
+      "capabilities": [
+        "search_concepts",
+        "get_concept",
+        "get_relations",
+        "get_mutation_guardrail_profile",
+        "get_evidence_promotion_contract",
+        "get_commit_boundary_contract",
+        "get_reference_status"
+      ],
+      "representativeQueries": [
+        "Find a canonical DIO/ODI concept and its stable identifier.",
+        "Retrieve the broader, narrower, and related SKOS concepts for a DIO/ODI term.",
+        "Find the DIO/ODI diagnostic profile for a proposed entity merge, split, or unmerge.",
+        "Retrieve the evidence-promotion and commit-boundary reference requirements for an identity-changing operation.",
+        "Check the current Reference Model, vocabulary, and application-mapping versions exposed by DIO/ODI MCP."
+      ]
+    }
+  ]
+}
