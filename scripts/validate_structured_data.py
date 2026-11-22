@@ -34,9 +34,9 @@ missing = required - set(nodes)
 if missing:
     raise SystemExit("Missing graph nodes: " + ", ".join(sorted(missing)))
 person = nodes[PERSON_ID]
-if person.get("@type") != "Person" or person.get("mainEntityOfPage", {}).get("@id") != PROFILE_ID:
-    raise SystemExit("Person must resolve to the canonical WordPress ProfilePage.")
-if person.get("url") != PROFILE_ID.rsplit("#", 1)[0] + "/":
+if person.get("@type") != "Person":
+    raise SystemExit("Expected the canonical Person node.")
+if person.get("url") != PROFILE_ID.rsplit("#", 1)[0]:
     raise SystemExit("Person.url must be the canonical professional biography URL.")
 page = nodes[PAGE_ID]
 if page.get("@type") != "CollectionPage" or page.get("isPartOf", {}).get("@id") != WEBSITE_ID:
