@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Generate and validate the Apps-domain ARD and Common AI Catalog manifests.
+"""Generate the Apps-domain ARD manifest and canonical AI Catalog pointer.
 
-A single reviewed source file is projected into two independent discovery
-formats. The generated files are committed so GitHub Pages can serve them
-without a build-time dependency.
+The richer Apps-specific ARD remains generated from its local reviewed source.
+The AI Catalog endpoint delegates to the single canonical DIO/ODI catalog on
+the Reference Model domain instead of maintaining a second artifact inventory.
+Both generated files are committed for static GitHub Pages hosting.
 """
 from __future__ import annotations
 
@@ -21,11 +22,7 @@ AI_CATALOG_OUTPUT = ROOT / ".well-known/ai-catalog.json"
 
 ARD_CONTEXT = "https://agenticresourcediscovery.org/context/v1"
 AI_CATALOG_SPEC_VERSION = "0.9"
-AI_CATALOG_FIELDS = (
-    "identifier", "displayName", "type", "url", "data",
-    "description", "version", "tags", "publisher", "trustManifests",
-    "extensions",
-)
+CANONICAL_AI_CATALOG_URL = "https://vocab.danielberanek.cz/.well-known/ai-catalog.json"
 MEDIA_TYPE = re.compile(r"^[A-Za-z0-9!#$&^_.+-]+/[A-Za-z0-9!#$&^_.+-]+$")
 
 
@@ -117,14 +114,22 @@ def project_ard(source: dict) -> dict:
 
 
 def project_ai_catalog(source: dict) -> dict:
-    entries = [
-        {key: entry[key] for key in AI_CATALOG_FIELDS if key in entry}
-        for entry in source["entries"]
-    ]
     return {
         "specVersion": AI_CATALOG_SPEC_VERSION,
         "host": source["host"],
-        "entries": entries,
+        "entries": [
+            {
+                "identifier": "urn:air:apps.danielberanek.cz:catalog:canonical",
+                "displayName": "Canonical DIO/ODI AI Catalog",
+                "type": "application/ai-catalog+json",
+                "url": CANONICAL_AI_CATALOG_URL,
+                "description": (
+                    "Canonical catalog for the public DIO/ODI research resources, "
+                    "machine-readable reference data, MCP service and Agentic "
+                    "Entity Resolution Guardrail Planner."
+                ),
+            }
+        ],
     }
 
 
@@ -137,6 +142,11 @@ def validate_ai_catalog(catalog: dict) -> None:
     entries = catalog.get("entries")
     if not isinstance(entries, list):
         raise ValueError("AI Catalog requires an entries array.")
+    if len(entries) != 1:
+        raise ValueError("Apps AI Catalog must remain a single-entry pointer to the canonical catalogue.")
+    pointer = entries[0]
+    if pointer.get("type") != "application/ai-catalog+json" or pointer.get("url") != CANONICAL_AI_CATALOG_URL:
+        raise ValueError("Apps AI Catalog must delegate to the canonical Reference Model catalogue.")
     for index, entry in enumerate(entries):
         label = f"AI Catalog entries[{index}]"
         for field in ("identifier", "type"):
@@ -184,7 +194,7 @@ def main() -> int:
             ]
             if stale:
                 raise ValueError("Generated manifests are stale or missing: " + ", ".join(stale))
-            print("ARD and AI Catalog manifests are reproducible and valid.")
+            print("Apps ARD manifest and canonical AI Catalog pointer are reproducible and valid.")
     except Exception as exc:
         print(f"Agent discovery generation failed: {exc}", file=sys.stderr)
         return 1

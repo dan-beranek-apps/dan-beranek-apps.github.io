@@ -7,38 +7,11 @@
   },
   "entries": [
     {
-      "identifier": "urn:air:apps.danielberanek.cz:skill:agentic-entity-resolution-guardrail-planner",
-      "displayName": "Agentic Entity Resolution Guardrail Planner",
-      "type": "text/html",
-      "url": "https://apps.danielberanek.cz/agentic-entity-resolution-guardrail-planner/",
-      "description": "A published design-time Agent Skill for investigating agent-proposed MERGE, SPLIT, UNMERGE and supported identity-changing operations, then producing reviewable recommendations and structured engineering plans. It does not execute mutations or authorize production writes.",
-      "version": "0.4.2",
-      "tags": [
-        "Agent Skill",
-        "Agentic Entity Resolution",
-        "DIO/ODI",
-        "identity changes",
-        "MERGE",
-        "SPLIT",
-        "UNMERGE",
-        "engineering planning"
-      ]
-    },
-    {
-      "identifier": "urn:air:apps.danielberanek.cz:mcp:dio-odi-reference",
-      "displayName": "DIO/ODI MCP Reference Service",
-      "type": "application/mcp-server-card+json",
-      "url": "https://mcp.danielberanek.cz/mcp/server-card",
-      "description": "Public, stateless, read-only MCP Streamable HTTP service exposing the DIO/ODI Reference Model, canonical SKOS vocabulary, and selected derived Agentic ER and Policy-as-Code reference mappings. It does not inspect integrating applications, validate evidence, authorize mutations, or execute production writes.",
-      "version": "0.1.4",
-      "tags": [
-        "DIO/ODI",
-        "MCP",
-        "reference model",
-        "SKOS",
-        "Agentic Entity Resolution",
-        "read-only"
-      ]
+      "identifier": "urn:air:apps.danielberanek.cz:catalog:canonical",
+      "displayName": "Canonical DIO/ODI AI Catalog",
+      "type": "application/ai-catalog+json",
+      "url": "https://vocab.danielberanek.cz/.well-known/ai-catalog.json",
+      "description": "Canonical catalog for the public DIO/ODI research resources, machine-readable reference data, MCP service and Agentic Entity Resolution Guardrail Planner."
     }
   ]
 }
